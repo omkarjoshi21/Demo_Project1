@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Manager</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2563eb;
+    }
+
+    input, select, button {
+      padding: 10px;
+      margin: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      background: #2563eb;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    li {
+      background: #eef2ff;
+      padding: 12px;
+      margin: 8px 0;
+      list-style: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Project Manager</h1>
+
+    <input type="text" id="taskName" placeholder="Enter task name">
+
+    <select id="taskStatus">
+      <option>To Do</option>
+      <option>In Progress</option>
+      <option>Completed</option>
+    </select>
+
+    <button onclick="addTask()">Add Task</button>
+
+    <h2>Tasks</h2>
+    <ul id="taskList"></ul>
+  </div>
+
+  <script>
+    function addTask() {
+      const taskName = document.getElementById("taskName").value;
+      const taskStatus = document.getElementById("taskStatus").value;
+      const taskList = document.getElementById("taskList");
+
+      if (taskName === "") {
+        alert("Please enter a task name");
+        return;
+      }
+
+      const task = document.createElement("li");
+      task.textContent = taskName + " - " + taskStatus;
+      taskList.appendChild(task);
+
+      document.getElementById("taskName").value = "";
+    }
+  </script>
+</body>
+</html>
